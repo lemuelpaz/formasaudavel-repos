@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Source.Repository
 {
-    public class ProfissionalRepository : IMedicoRepository
+    public class ProfissionalRepository : IProfissionalRepository
     {
         #region Constructor
         private readonly DataContext _context;

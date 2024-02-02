@@ -2,7 +2,7 @@
 
 namespace API.Source.Base.Contracts.Repository
 {
-    public interface IMedicoRepository
+    public interface IProfissionalRepository
     {
         Task<Medico> Create(Medico createDTO);
         Task<Medico> Get(int id);

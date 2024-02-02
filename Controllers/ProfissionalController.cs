@@ -10,8 +10,8 @@ namespace API.Controllers
     public class ProfissionalController : BaseController
     {
         #region Constructor
-        private readonly IMedicoService _service;
-        public ProfissionalController(IMedicoService service)
+        private readonly IProfissionalService _service;
+        public ProfissionalController(IProfissionalService service)
         {
             _service = service;
         }
@@ -81,6 +81,20 @@ namespace API.Controllers
             {
                 var medico = BuildResponse(await _service.Delete(id));
                 return medico;
+            }
+            catch (Exception ex)
+            {
+                return BuildResponse(message: ex.Message, success: false);
+            }
+        }
+
+        [HttpGet("cargos")]
+        public ActionResult GetCargo()
+        {
+            try
+            {
+                var cargo = BuildResponse(_service.CargoType());
+                return cargo;
             }
             catch (Exception ex)
             {

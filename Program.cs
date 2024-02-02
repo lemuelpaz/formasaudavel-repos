@@ -17,8 +17,9 @@ AppSettings.LoadSettings(builder.Configuration);
 //Carrega injeção de dependencia
 Ioc.LoadInjectorDependencie(builder.Services);
 
+
 //Conexao com banco
-builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(AppSettings.PostgreSQlConnection));
+builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(AppSettings.PostgreSQlConnection));
 
 var app = builder.Build();
 

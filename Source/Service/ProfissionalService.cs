@@ -1,15 +1,16 @@
-﻿using API.Model.Data;
+﻿using API.Model;
+using API.Model.Data;
 using API.Source.Base.Contracts.Repository;
 using API.Source.Base.Contracts.Service;
 
 namespace API.Source.Service
 {
-    public class ProfissionalService : IMedicoService
+    public class ProfissionalService : IProfissionalService
     {
 
         #region Constructor
-        private readonly IMedicoRepository _repository;
-        public ProfissionalService(IMedicoRepository repository)
+        private readonly IProfissionalRepository _repository;
+        public ProfissionalService(IProfissionalRepository repository)
         {
             _repository = repository;
         }
@@ -38,6 +39,21 @@ namespace API.Source.Service
         public async Task<Medico> Update(Medico updateDTO)
         {
             return await _repository.Update(updateDTO);
+        }
+
+        public List<CargoResponse> CargoType()
+        {
+            List<CargoResponse> cargoResponses = new List<CargoResponse>();
+
+            foreach (CargoType item in Enum.GetValues(typeof(CargoType)))
+            {
+                CargoResponse cargoResponse = new CargoResponse();
+                cargoResponse.Id = (int)item;
+                cargoResponse.CargoName = item.ToString();
+                cargoResponses.Add(cargoResponse);
+            }
+
+            return cargoResponses;
         }
     }
 }
