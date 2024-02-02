@@ -15,6 +15,7 @@ namespace API.Model.Data
         public string? Telefone { get; set; }
         public string? Cpf { get; set; }
         public bool Status { get; set; } = true;
+        public string? Image { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 

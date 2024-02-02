@@ -146,6 +146,9 @@ namespace API.Migrations
                     b.Property<int>("Idade")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
                     b.Property<string>("Nome")
                         .HasColumnType("text");
 
