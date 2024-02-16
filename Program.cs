@@ -14,11 +14,11 @@ builder.Services.AddSwaggerGen();
 
 //Load Settings
 AppSettings.LoadSettings(builder.Configuration);
-//Carrega injeção de dependencia
+//Carrega injeï¿½ï¿½o de dependencia
 Ioc.LoadInjectorDependencie(builder.Services);
 
 //Conexao com banco
-builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(AppSettings.PostgreSQlConnection));
+builder.Services.AddDbContext<DataContext>(opt => opt.UseNpgsql(AppSettings.PostgreSQlConnection));
 
 var app = builder.Build();
 
@@ -41,9 +41,6 @@ else
         options.RoutePrefix = string.Empty;
     });
 }
-
-
-
 
 app.UseHttpsRedirection();
 
