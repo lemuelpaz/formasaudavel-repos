@@ -56,7 +56,7 @@ namespace API.Source.Repository
         {
             var agendamento = await (from a in _context.Agendamento
                                      join b in _context.Paciente on a.PacienteId equals b.Id
-                                     join c in _context.Medico on a.ProfissionalId equals c.Id
+                                     join c in _context.Profissional on a.ProfissionalId equals c.Id
                                      where a.Id == id
                                      select new AgendamentoResponse
                                      {
@@ -79,7 +79,7 @@ namespace API.Source.Repository
         {
             var agendamento = await (from a in _context.Agendamento
                                      join b in _context.Paciente on a.PacienteId equals b.Id
-                                     join c in _context.Medico on a.ProfissionalId equals c.Id
+                                     join c in _context.Profissional on a.ProfissionalId equals c.Id
                                      where a.ProfissionalId == profissionalId
                                      select new AgendamentoResponse
                                      {
@@ -106,7 +106,7 @@ namespace API.Source.Repository
         {
             var agendamentoList = await (from a in _context.Agendamento
                                          join b in _context.Paciente on a.PacienteId equals b.Id
-                                         join c in _context.Medico on a.ProfissionalId equals c.Id
+                                         join c in _context.Profissional on a.ProfissionalId equals c.Id
                                          select new AgendamentoResponse
                                          {
                                              Id = a.Id,

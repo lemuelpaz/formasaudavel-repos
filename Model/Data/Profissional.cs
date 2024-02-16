@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using API.Source.Base.Utils;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
 
 namespace API.Model.Data
 {
-    public class Medico
+    public class Profissional
     {
         [Key]
         public int Id { get; set; }
@@ -15,12 +16,14 @@ namespace API.Model.Data
         public string? Telefone { get; set; }
         public string? Cpf { get; set; }
         public bool Status { get; set; } = true;
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+        [Required]
+        public string? Password { get; set; }
 
         //Pacientes
         [XmlIgnore, JsonIgnore]
-        public List<Paciente>? Paciente { get; set; }
+        public List<Profissional>? Paciente { get; set; }
 
         [XmlIgnore, JsonIgnore]
         public List<Agendamento>? Agendamento { get; set; }
@@ -30,5 +33,12 @@ namespace API.Model.Data
 
         [XmlIgnore, JsonIgnore]
         public IEnumerable<HoraAgendamento>? HoraAgendamento { get; set; }
+
+
+
+        public bool SenhaValida(string password)
+        {
+            return Password == password.GerarHash();
+        }
     }
 }

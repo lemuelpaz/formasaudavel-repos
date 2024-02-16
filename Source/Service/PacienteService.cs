@@ -15,7 +15,7 @@ namespace API.Source.Service
         }
         #endregion
 
-        public async Task<Paciente> Create(Paciente createDTO)
+        public async Task<Profissional> Create(Profissional createDTO)
         {
             return await _repository.Create(createDTO);
         }
@@ -25,17 +25,17 @@ namespace API.Source.Service
             return await _repository.Delete(id);
         }
 
-        public async Task<Paciente> Get(int id)
+        public async Task<Profissional> Get(int id)
         {
             return await _repository.Get(id);
         }
 
-        public async Task<List<Paciente>> List()
+        public async Task<List<Profissional>> List()
         {
             return await _repository.List();
         }
 
-        public async Task<Paciente> Update(Paciente updateDTO)
+        public async Task<Profissional> Update(Profissional updateDTO)
         {
             return await _repository.Update(updateDTO);
         }

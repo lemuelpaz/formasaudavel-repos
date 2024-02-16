@@ -21,6 +21,6 @@ namespace API.Model.Data
 
 
         [XmlIgnore, JsonIgnore]
-        public Medico? Profissional { get; set; }
+        public Profissional? Profissional { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using API.Model.Data;
 using API.Source.Base.Contracts.Repository;
 using API.Source.Base.Contracts.Service;
+using API.Source.Base.Utils;
 
 namespace API.Source.Service
 {
@@ -15,8 +16,9 @@ namespace API.Source.Service
         }
         #endregion
 
-        public async Task<Medico> Create(Medico createDTO)
+        public async Task<Profissional> Create(Profissional createDTO)
         {
+            createDTO.Password = CryptPassword.GerarHash(createDTO.Password!);
             return await _repository.Create(createDTO);
         }
 
@@ -25,17 +27,17 @@ namespace API.Source.Service
             return await _repository.Delete(id);
         }
 
-        public async Task<Medico> Get(int id)
+        public async Task<Profissional> Get(int id)
         {
             return await _repository.Get(id);
         }
 
-        public async Task<List<Medico>> List()
+        public async Task<List<Profissional>> List()
         {
             return await _repository.List();
         }
 
-        public async Task<Medico> Update(Medico updateDTO)
+        public async Task<Profissional> Update(Profissional updateDTO)
         {
             return await _repository.Update(updateDTO);
         }

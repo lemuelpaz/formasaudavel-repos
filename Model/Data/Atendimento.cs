@@ -11,14 +11,14 @@ namespace API.Model.Data
         public StatusAtendimento StatusAtendimento { get; set; }
         public DateTime DataAgendada { get; set; }
         public string? Observacao { get; set; }
-        public int MedicoId { get; set; }
+        public int ProfissionalId { get; set; }
         public int PacienteId { get; set; }
         public int AgendamentoId { get; set; }
 
 
         //Relations
         [JsonIgnore, XmlIgnore]
-        public Medico? Medico { get; set; }
+        public Profissional? Profissional { get; set; }
         [JsonIgnore, XmlIgnore]
         public Paciente? Paciente { get; set; }
         [JsonIgnore, XmlIgnore]

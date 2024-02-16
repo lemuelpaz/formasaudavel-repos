@@ -4,10 +4,10 @@ namespace API.Source.Base.Contracts.Service
 {
     public interface IMedicoService
     {
-        Task<Medico> Create(Medico createDTO);
-        Task<Medico> Get(int id);
-        Task<List<Medico>> List();
-        Task<Medico> Update(Medico updateDTO);
+        Task<Profissional> Create(Profissional createDTO);
+        Task<Profissional> Get(int id);
+        Task<List<Profissional>> List();
+        Task<Profissional> Update(Profissional updateDTO);
         Task<bool> Delete(int id);
     }
 }

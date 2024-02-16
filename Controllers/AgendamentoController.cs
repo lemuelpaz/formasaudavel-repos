@@ -1,6 +1,7 @@
 ﻿using API.Model.Data;
 using API.Source.Base.Contracts.Service;
 using API.Source.Base.Middleware;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -18,6 +19,7 @@ namespace API.Controllers
         #endregion
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> Create([FromBody] Agendamento createDTO)
         {
             try
@@ -33,6 +35,7 @@ namespace API.Controllers
 
 
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult> Get(int id)
         {
             try
@@ -48,6 +51,7 @@ namespace API.Controllers
 
 
         [HttpGet("GetByProfissional/{profissionalId}")]
+        [Authorize]
         public async Task<ActionResult> GetByProfissional(int profissionalId)
         {
             try
@@ -62,6 +66,7 @@ namespace API.Controllers
         }
 
         [HttpGet("list")]
+        [Authorize]
         public async Task<ActionResult> List()
         {
             try
@@ -76,6 +81,7 @@ namespace API.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public async Task<ActionResult> Update([FromBody] Agendamento updateDTO)
         {
             try
@@ -90,6 +96,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> Delete(int id)
         {
             try

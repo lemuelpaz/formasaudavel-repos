@@ -16,7 +16,7 @@ namespace API.Model.Data
         public string? Observacao { get; set; }
 
         [XmlIgnore, JsonIgnore]
-        public Medico? Profissional { get; set; }
+        public Profissional? Profissional { get; set; }
 
         [XmlIgnore, JsonIgnore]
         public Paciente? Paciente { get; set; }
