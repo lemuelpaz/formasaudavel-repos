@@ -11,7 +11,7 @@ namespace API.Source.Base.SQL
 
         //DbSet
         public DbSet<Profissional> Profissional { get; set; }
-        public DbSet<Profissional> Paciente { get; set; }
+        public DbSet<Paciente> Paciente { get; set; }
         public DbSet<Agendamento> Agendamento { get; set; }
         public DbSet<Atendimento> Atendimento { get; set; }
         public DbSet<HoraAgendamento> HoraAgendamento { get; set; }

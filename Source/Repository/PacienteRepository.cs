@@ -21,7 +21,7 @@ namespace API.Source.Repository
         /// </summary>
         /// <param name="createDTO"></param>
         /// <returns></returns>
-        public async Task<Profissional> Create(Profissional createDTO)
+        public async Task<Paciente> Create(Paciente createDTO)
         {
             _context.Add(createDTO);
             await _context.SaveChangesAsync();
@@ -51,7 +51,7 @@ namespace API.Source.Repository
         /// <param name="id"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public async Task<Profissional> Get(int id)
+        public async Task<Paciente> Get(int id)
         {
             var paciente = await _context.Paciente.Where(x => x.Id.Equals(id)).FirstOrDefaultAsync();
             if (paciente == null)
@@ -63,7 +63,7 @@ namespace API.Source.Repository
         /// List Paciente
         /// </summary>
         /// <returns></returns>
-        public async Task<List<Profissional>> List()
+        public async Task<List<Paciente>> List()
         {
             return await _context.Paciente.ToListAsync();
         }
@@ -75,7 +75,7 @@ namespace API.Source.Repository
         /// <param name="updateDTO"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public async Task<Profissional> Update(Profissional updateDTO)
+        public async Task<Paciente> Update(Paciente updateDTO)
         {
             _context.Paciente.Update(updateDTO);
             await _context.SaveChangesAsync();

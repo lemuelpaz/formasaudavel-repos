@@ -31,6 +31,7 @@ namespace API.Source.Base.Middlewares
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                         new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()),
                         new Claim(ClaimTypes.Email, request.Email!),
+                        new Claim(ClaimTypes.Name, request.Nome!),
                     }
                 ),
                 Expires = expiresIn,

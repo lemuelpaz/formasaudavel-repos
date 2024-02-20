@@ -20,7 +20,7 @@ namespace API.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<ActionResult> Create([FromBody] Profissional createDTO)
+        public async Task<ActionResult> Create([FromBody] Paciente createDTO)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace API.Controllers
 
         [HttpPut]
         [Authorize]
-        public async Task<ActionResult> Update([FromBody] Profissional updateDTO)
+        public async Task<ActionResult> Update([FromBody] Paciente updateDTO)
         {
             try
             {

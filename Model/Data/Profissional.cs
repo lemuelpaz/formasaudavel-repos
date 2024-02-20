@@ -1,4 +1,5 @@
 ﻿using API.Source.Base.Utils;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using System.Xml.Serialization;
@@ -18,12 +19,13 @@ namespace API.Model.Data
         public bool Status { get; set; } = true;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
+
+        [DefaultValue(true)]
+        public bool ProfissionalType { get; set; }
+
         [Required]
         public string? Password { get; set; }
 
-        //Pacientes
-        [XmlIgnore, JsonIgnore]
-        public List<Profissional>? Paciente { get; set; }
 
         [XmlIgnore, JsonIgnore]
         public List<Agendamento>? Agendamento { get; set; }
